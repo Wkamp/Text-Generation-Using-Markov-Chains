@@ -20,7 +20,7 @@ int main() {
         string word = "";
 
         // setting ' ' as the third argument to getline can separate out each word from the line
-        // however, it was causing issues when adding each word to the graph so I did it manually 
+        // however, I was haveing whitespace issues when adding each word to the graph so I did it manually 
         while (getline(text, line)) {
             if (line.size() == 0) { // adds " " to words so I can account for empty lines separating paragraphs
                 words.push_back(" ");
@@ -53,7 +53,9 @@ int main() {
 
 	for (int i = 0; i < words.size()-1; i++) {
         if (words[i] != " " && words[i+1] != " ") { // keeps the last word of a paragraph from being adjacent to the beginning word of the next paragraph
-            graph.addEdge(words[i], words[i+1], 1);
+            graph.addEdge(words[i], words[i+1]);
+
+
         }
 	}
 

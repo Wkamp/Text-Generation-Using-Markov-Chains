@@ -15,7 +15,7 @@ class Graph {
 
     void print();
 
-    void addEdge(string node1, string node2, int weight);
+    void addEdge(string node1, string node2, int weight = 1);
     
     private:
     // nodeName -> (adjNode, weight)
