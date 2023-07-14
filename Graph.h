@@ -13,6 +13,10 @@ class Graph {
     public:
     Graph();
 
+    int getSize();
+
+    vector<pair<string, int>> getNode(string node);
+
     void print();
 
     void addEdge(string node1, string node2, int weight = 1);

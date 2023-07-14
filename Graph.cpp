@@ -3,6 +3,7 @@
 #include <map>
 #include <vector>
 #include <utility>
+#include <algorithm>
 #include "Graph.h"
 
 using namespace std;
@@ -10,6 +11,16 @@ using namespace std;
 Graph::Graph() {
 
 }
+
+vector<pair<string, int>> Graph::getNode(string node) {
+    auto it = adjlist.find(node);
+    return it->second;
+};
+
+int Graph::getSize() {
+    return adjlist.size();
+}
+
 
 void Graph::print() {
     cout << "Node --> (adjNode, weight)\n\n";
@@ -38,7 +49,7 @@ void Graph::addEdge(string node1, string node2, int weight) {
         }
 
         if (!exist) {
-            adjlist[node1].push_back(make_pair(node2, weight)); // adds new pair to graph if pair not in graph
+            adjlist[node1].push_back(make_pair(node2, weight)); // adds new pair to graph, if pair not already in graph
         }
         
     }
